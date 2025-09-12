@@ -5,6 +5,7 @@ import { createSuperbaseClient } from "@/lib/superbase";
 
 // this code can only be used on the server side
 
+//C in CRUD
 export const createCompanion = async (formData: CreateCompanion) => {
   const { userId: author } = await auth();
   const supabase = createSuperbaseClient();
@@ -20,6 +21,7 @@ export const createCompanion = async (formData: CreateCompanion) => {
   return data[0];
 };
 
+//R in CRUD
 export const getAllCompanions = async ({
   limit = 10,
   page = 1,
@@ -49,4 +51,17 @@ export const getAllCompanions = async ({
 
   //if everything ok -> companions
   return companions;
+};
+
+//Get a specific companion by id
+export const getCompanion = async (id: string) => {
+  const supabase = createSuperbaseClient();
+
+  const { data, error } = await supabase
+    .from("companions")
+    .select()
+    .eq("id", id); //only the one equal to id that i pass through params
+  if (error) throw new Error(error.message);
+
+  return data[0];
 };

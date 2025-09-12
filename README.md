@@ -24,7 +24,7 @@
 - ![Clerk](https://img.shields.io/badge/Clerk-Auth%20%26%20Users-3B82F6?logo=clerk&logoColor=white) **Clerk** – Authentication & user management  
 - ![Junie AI](https://img.shields.io/badge/Junie%20AI-Smart%20Assistant-7C3AED?logo=robot&logoColor=white) **Junie AI** – AI-powered navigation & assistance  
 - ![Sentry](https://img.shields.io/badge/Sentry-Monitoring-050505?logo=sentry&logoColor=white) **Sentry** – Error tracking & monitoring
-- ![LottieFiles](https://img.shields.io/badge/Sentry-Monitoring-050505?logo=sentry&logoColor=white)
+- ![LottieFiles](https://img.shields.io/badge/LottieFiles-00DDB3.svg?style=for-the-badge&logo=LottieFiles&logoColor=white)
 
 
 ---

@@ -24,6 +24,9 @@
 - ![Clerk](https://img.shields.io/badge/Clerk-Auth%20%26%20Users-3B82F6?logo=clerk&logoColor=white) **Clerk** – Authentication & user management  
 - ![Junie AI](https://img.shields.io/badge/Junie%20AI-Smart%20Assistant-7C3AED?logo=robot&logoColor=white) **Junie AI** – AI-powered navigation & assistance  
 - ![Sentry](https://img.shields.io/badge/Sentry-Monitoring-050505?logo=sentry&logoColor=white) **Sentry** – Error tracking & monitoring
+- LottieFiles <p align="center">
+  <img src="https://assets9.lottiefiles.com/packages/lf20_qp1q7mct.json.gif" width="250" alt="Laptop Animation"/>
+</p>
 
 
 ---

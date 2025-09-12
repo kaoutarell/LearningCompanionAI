@@ -14,17 +14,17 @@
 
 ## 🛠️ Tech Stack
 
-- ![Next.js](https://img.shields.io/badge/Next.js-14-black?logo=next.js&logoColor=white) **Next.js** – Full-stack framework  
-- ![React](https://img.shields.io/badge/React-18-61DAFB?logo=react&logoColor=white) **React 18**  
-- ![TypeScript](https://img.shields.io/badge/TypeScript-5.x-3178C6?logo=typescript&logoColor=white) **TypeScript**  
-- ![Supabase](https://img.shields.io/badge/Supabase-DB%20%26%20Auth-3ECF8E?logo=supabase&logoColor=white) **Supabase** – Authentication & database  
-- ![Stripe](https://img.shields.io/badge/Stripe-Payments-626CD9?logo=stripe&logoColor=white) **Stripe** – Subscriptions & payments  
+- ![Next.js](https://img.shields.io/badge/Next.js-14-black?logo=next.js&logoColor=white) – Full-stack framework  
+- ![React](https://img.shields.io/badge/React-18-61DAFB?logo=react&logoColor=white)
+- ![TypeScript](https://img.shields.io/badge/TypeScript-5.x-3178C6?logo=typescript&logoColor=white)
+- ![Supabase](https://img.shields.io/badge/Supabase-DB%20%26%20Auth-3ECF8E?logo=supabase&logoColor=white) – Authentication & database  
+- ![Stripe](https://img.shields.io/badge/Stripe-Payments-626CD9?logo=stripe&logoColor=white) – Subscriptions & payments  
 - 🎤 **Vapi** – Real-time AI vocal agent integration  
-- ![TailwindCSS](https://img.shields.io/badge/TailwindCSS-Utility%20First-06B6D4?logo=tailwindcss&logoColor=white) **TailwindCSS** – Responsive, modern UI  
-- ![Clerk](https://img.shields.io/badge/Clerk-Auth%20%26%20Users-3B82F6?logo=clerk&logoColor=white) **Clerk** – Authentication & user management  
-- ![Junie AI](https://img.shields.io/badge/Junie%20AI-Smart%20Assistant-7C3AED?logo=robot&logoColor=white) **Junie AI** – AI-powered navigation & assistance  
-- ![Sentry](https://img.shields.io/badge/Sentry-Monitoring-050505?logo=sentry&logoColor=white) **Sentry** – Error tracking & monitoring
-- ![LottieFiles](https://img.shields.io/badge/LottieFiles-00DDB3.svg?style=for-the-badge&logo=LottieFiles&logoColor=white)
+- ![TailwindCSS](https://img.shields.io/badge/TailwindCSS-Utility%20First-06B6D4?logo=tailwindcss&logoColor=white) – Responsive, modern UI  
+- ![Clerk](https://img.shields.io/badge/Clerk-Auth%20%26%20Users-3B82F6?logo=clerk&logoColor=white) – Authentication & user management  
+- ![Junie AI](https://img.shields.io/badge/Junie%20AI-Smart%20Assistant-7C3AED?logo=robot&logoColor=white) – AI-powered navigation & assistance  
+- ![Sentry](https://img.shields.io/badge/Sentry-Monitoring-050505?logo=sentry&logoColor=white) – Error tracking & monitoring
+- ![LottieFiles](https://img.shields.io/badge/LottieFiles-00DDB3.svg?style=for-the-badge&logo=LottieFiles&logoColor=white) - Animated icons
 
 
 ---

@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useEffect, useRef, useState } from "react";
-import { cn, getSubjectColor } from "@/lib/utils";
+import { cn, configureAssistant, getSubjectColor } from "@/lib/utils";
 import { vapi } from "@/lib/vapi.sdk";
 import Image from "next/image";
 import Lottie, { LottieRefCurrentProps } from "lottie-react";
@@ -14,6 +14,7 @@ enum CallStatus {
   FINISHED = "FINISHED",
 }
 
+// @ts-ignore
 const CompanionComponent = ({
   companionId,
   subject,
@@ -28,6 +29,7 @@ const CompanionComponent = ({
   const [callStatus, setCallStatus] = useState<CallStatus>(CallStatus.INACTIVE);
   const [isSpeaking, setIsSpeaking] = useState(false);
   const [isMuted, setIsMuted] = useState(false);
+  const [messages, setMessages] = useState<SavedMessage[]>([]);
 
   //Use Refs
   const lottieRef = useRef<LottieRefCurrentProps>(null);
@@ -46,7 +48,12 @@ const CompanionComponent = ({
   useEffect(() => {
     const onCallStart = () => setCallStatus(CallStatus.ACTIVE);
     const onCallEnd = () => setCallStatus(CallStatus.FINISHED);
-    const onMessage = () => {};
+    const onMessage = (message: Message) => {
+      if (message.type === "transcript" && message.transcriptType === "final") {
+        const newMessage = { role: message.role, content: message.transcript };
+        setMessages((prev) => [newMessage, ...prev]); //spread previous state and add a new message
+      }
+    };
     const onSpeechStart = () => setIsSpeaking(true);
     const onSpeechEnd = () => setIsSpeaking(false);
     const onError = (error: Error) => console.log("error", error);
@@ -76,7 +83,10 @@ const CompanionComponent = ({
     setIsMuted(!isMuted);
   };
 
-  const handleDisconnect = () => {};
+  const handleDisconnect = () => {
+    setCallStatus(CallStatus.FINISHED);
+    vapi.stop();
+  };
 
   const handleCall = async () => {
     setCallStatus(CallStatus.CONNECTING);
@@ -86,7 +96,13 @@ const CompanionComponent = ({
         topic,
         style,
       },
+      clientMessages: ["transcript"],
+      serverMessages: [],
     };
+
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    //@ts-expect-error
+    vapi.start(configureAssistant(voice, style), assistantOverrides);
   };
 
   return (
@@ -169,8 +185,24 @@ const CompanionComponent = ({
         </div>
       </section>
       <section className="transcript">
-        <div className="transcript-message no-scrollbar">MESSAGES</div>
-        <div className="transcript-fade">Fading</div>
+        <div className="transcript-message no-scrollbar">
+          {messages.map((message, index) => {
+            if (message.role === "assistant") {
+              return (
+                <p key={index} className="text-sm max-sm:text-sm">
+                  {name.split(" ")[0].replace(/[.,]/g, "")}: {message.content}
+                </p>
+              );
+            } else {
+              return (
+                <p key={index} className="text-sm max-sm:text-sm">
+                  {userName}: {message.content}
+                </p>
+              );
+            }
+          })}
+        </div>
+        <div className="transcript-fade" />
       </section>
     </section>
   );

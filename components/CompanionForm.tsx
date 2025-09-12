@@ -22,6 +22,8 @@ import {
 import { Button } from "./ui/button";
 import { subjects } from "@/constants";
 import { Textarea } from "./ui/textarea";
+import { createCompanion } from "@/lib/actions/companion.actions";
+import { redirect } from "next/navigation";
 
 // necessary to use the shadcn form (forms can be tricky)
 const formSchema = z.object({
@@ -48,9 +50,14 @@ const CompanionForm = () => {
   });
 
   //submit it
-  const onSubmit = (values: z.infer<typeof formSchema>) => {
-    //Do smtg with the form values
-    console.log(values);
+  const onSubmit = async (values: z.infer<typeof formSchema>) => {
+    const companion = await createCompanion(values);
+    if (companion) {
+      redirect(`/companions/${companion.id}`);
+    } else {
+      console.log("failed to create companion");
+      redirect("/");
+    }
   };
   return (
     <Form {...form}>

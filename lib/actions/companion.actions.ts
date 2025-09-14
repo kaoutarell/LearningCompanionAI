@@ -109,3 +109,16 @@ export const getUserSessions = async (userId: string, limit = 10) => {
   //destructure the data
   return data.map(({ companions }) => companions);
 };
+
+export const getUserCompanions = async (userId: string) => {
+  const supabase = createSuperbaseClient();
+  const { data, error } = await supabase
+    .from("companions")
+    .select()
+    .eq("author", userId); //we only want to get the companions created by this specific user
+
+  if (error) throw new Error(error.message);
+
+  //destructure the data
+  return data;
+};

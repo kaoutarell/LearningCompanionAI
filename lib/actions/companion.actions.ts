@@ -122,3 +122,36 @@ export const getUserCompanions = async (userId: string) => {
   //destructure the data
   return data;
 };
+
+export const newCompanionPermissions = async () => {
+  const { userId, has } = await auth(); // has ==> manages the users who have access to the features they paid for without handling the logic on our end
+  const supabase = createSuperbaseClient();
+
+  let limit = 0;
+
+  if (has({ plan: "pro" })) {
+    limit = 3; //just for testing purposes => should be true since in this plan companions are unlimited -- IT WOORKS THOO
+  } else if (has({ feature: "3_companion_limit" })) {
+    limit = 3;
+  } else if (has({ feature: "10_companion_limit" })) {
+    limit = 3;
+  } else if (has({ feature: "10_companion_limits" })) {
+    //slug cannot be repeated twice in clerk
+    limit = 3;
+  }
+
+  const { data, error } = await supabase
+    .from("companions")
+    .select("id", { count: "exact" })
+    .eq("author", userId);
+
+  if (error) throw new Error(error.message);
+
+  const companionCount = data?.length;
+
+  if (companionCount >= limit) {
+    return false;
+  } else {
+    return data;
+  }
+};

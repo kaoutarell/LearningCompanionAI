@@ -11,7 +11,7 @@ export const metadata: Metadata = {
   title: "Illuma",
   description: "Real-time AI Teaching Platform",
   icons: {
-    icon: "/images/illuma.svg",
+    icon: "/favicon.ico",
   },
 };
 

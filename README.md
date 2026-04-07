@@ -1,4 +1,4 @@
-# 📚 Converso LMS
+# 📚 Illumi LMS
 
 ![Next.js](https://img.shields.io/badge/Next.js-13.4-blue?logo=next.js)
 ![React](https://img.shields.io/badge/React-18-61DAFB?logo=react)

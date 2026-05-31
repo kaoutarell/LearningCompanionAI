@@ -11,7 +11,7 @@ const Page = async () => {
     <>
       <main>
         <Hero />
-        <h1 className="text-2xl underline">Popular Companions</h1>
+        {/*<h1 className="text-2xl underline">Popular Companions</h1>
         <section className="companions-grid">
           {companions?.map((companion) => (
             <CompanionCard
@@ -20,7 +20,7 @@ const Page = async () => {
               color={companion.color ?? getSubjectColor(companion.subject)}
             />
           ))}
-        </section>
+        </section>*/}
       </main>
       <CTA />
     </>

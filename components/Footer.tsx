@@ -1,40 +1,23 @@
 import Link from "next/link";
 import Image from "next/image";
-import { Linkedin, Twitter, Youtube } from "lucide-react";
+import { Instagram } from "lucide-react";
 
 const footerColumns = [
   {
     title: "Features",
-    links: ["Notepad", "Chat", "Mobile"],
+    links: ["Chat", "Mobile"],
   },
   {
     title: "Product",
-    links: [
-      "Pricing",
-      "Enterprise",
-      "AI companions",
-      "For sales",
-      "For learning",
-      "Explore more…",
-    ],
+    links: ["Pricing", "Enterprise", "AI companions", "FAQ", "Explore more…"],
   },
   {
-    title: "Company",
-    links: ["Careers", "Press", "Events", "Startup program", "Student program"],
+    title: "Student Life",
+    links: ["About", "Events", "Blog/Forum", "Feedback/Suggestion"],
   },
   {
     title: "Resources",
-    links: [
-      "Blog",
-      "Security",
-      "Help Center",
-      "Status",
-      "Affiliates",
-      "Contact us",
-      "Terms",
-      "Privacy",
-      "License",
-    ],
+    links: ["Security", "Status", "Contact us", "Terms", "Privacy", "License"],
   },
 ];
 
@@ -49,9 +32,10 @@ const Footer = () => {
             <Link href="/" aria-label="Illumi home">
               <Image
                 src="/images/illuma_no_bg.png"
-                alt="Illumi"
-                width={46}
-                height={44}
+                alt="logo"
+                width={200}
+                height={200}
+                className="h-14 w-auto -my-1 max-sm:h-10"
               />
             </Link>
           </div>
@@ -73,13 +57,7 @@ const Footer = () => {
       <div className="footer-bottom">
         <div className="footer-socials">
           <Link href="#" aria-label="LinkedIn">
-            <Linkedin className="size-5 hover:text-foreground transition-colors" />
-          </Link>
-          <Link href="#" aria-label="X">
-            <Twitter className="size-5 hover:text-foreground transition-colors" />
-          </Link>
-          <Link href="#" aria-label="YouTube">
-            <Youtube className="size-5 hover:text-foreground transition-colors" />
+            <Instagram className="size-5 hover:text-foreground transition-colors" />
           </Link>
         </div>
         <p className="text-sm text-muted-foreground">

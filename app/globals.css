@@ -44,7 +44,7 @@
   --foreground: oklch(0.145 0 0);
 
   /* dotted paper grid */
-  --dot-color: oklch(0.85 0 0);
+  --dot-color: oklch(85.113% 0.00128 107.58 / 0.579);
   --dot-size: 1.4px;
   --dot-gap: 22px;
 
@@ -480,7 +480,7 @@
     @apply pointer-events-none select-none absolute left-1/2 bottom-[-2.5rem] -translate-x-1/2
            w-full text-center font-extrabold tracking-tight leading-none z-0;
     font-size: clamp(8rem, 28vw, 22rem);
-    color: oklch(0.92 0 0);
+    color: oklch(79.956% 0.10649 311.328 / 0.203);
     white-space: nowrap;
   }
 
@@ -504,7 +504,7 @@
          transition-transform hover:scale-[1.02];
   }
 
-  .cta-section {
+  /*.cta-section {
     @apply flex flex-col items-center gap-12 px-10 py-16 max-md:px-6 max-md:py-10;
     position: relative;
     left: 50%;
@@ -546,7 +546,7 @@
     @apply bg-pastel-blue text-black border border-black rounded-xl cursor-pointer
          px-5 py-2.5 flex items-center gap-2 font-semibold w-fit
          transition-transform hover:scale-[1.02];
-  }
+  }*/
 
   /* ---- scroll reveal ---- */
   .reveal {
@@ -567,6 +567,126 @@
       transition: none;
     }
   }
+
+  /* CTA title now matches Hero scale/weight */
+  .cta-section {
+    @apply flex flex-col items-center gap-12 px-10 py-16 max-md:px-6 max-md:py-10;
+    position: relative;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
+    width: 100vw;
+    background-image: radial-gradient(
+      var(--dot-color) var(--dot-size),
+      transparent var(--dot-size)
+    );
+    background-size: var(--dot-gap) var(--dot-gap);
+    background-position: -8px -8px;
+  }
+  .cta-heading {
+    @apply text-[3.5rem] font-extrabold tracking-tight leading-[1.02] text-center
+         text-neutral-900 max-md:text-4xl;
+  }
+  .cta-tagline {
+    @apply text-lg text-neutral-500 text-center max-w-[520px];
+  }
+
+  /* steps layout */
+  .how {
+    @apply w-full max-w-[1000px] mx-auto flex flex-col items-center gap-0 mt-6;
+  }
+  .step {
+    @apply flex items-center gap-12 w-full max-lg:flex-col max-lg:gap-6 max-lg:text-center;
+  }
+  .step-flip {
+    @apply flex-row-reverse max-lg:flex-col;
+  }
+  .step-copy {
+    @apply flex-1 flex flex-col gap-3 max-lg:items-center;
+  }
+  .step-num {
+    @apply text-5xl font-extrabold;
+    background: linear-gradient(
+      110deg,
+      var(--pastel-blue),
+      var(--pastel-purple) 50%,
+      var(--pastel-pink)
+    );
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    filter: saturate(1.4) brightness(0.85);
+  }
+  .step-title {
+    @apply text-3xl font-bold text-neutral-900 max-md:text-2xl;
+  }
+  .step-text {
+    @apply text-base text-neutral-500 max-w-[400px] leading-relaxed;
+  }
+  .step-visual {
+    @apply flex-1 flex justify-center items-center bg-white/60 rounded-[28px]
+         border border-black/10 p-8 backdrop-blur-sm;
+  }
+  .step-anim {
+    @apply w-full max-w-[260px] h-auto;
+  }
+
+  .step-arrow {
+    @apply w-full flex justify-center;
+  }
+  .arrow-svg {
+    width: 100%;
+    max-width: 700px;
+    height: 200px;
+  }
+  .arrow-svg.to-left {
+    transform: scaleX(-1); /* mirrors: top-right → bottom-left */
+  }
+  .arrow-path {
+    stroke-dasharray: 1000;
+    stroke-dashoffset: 1000;
+    transition: stroke-dashoffset 1.4s ease;
+  }
+  .arrow-head {
+    opacity: 0;
+    transition: opacity 0.3s ease 1.2s;
+  }
+  .step-arrow.is-visible .arrow-path {
+    stroke-dashoffset: 0;
+  }
+  .step-arrow.is-visible .arrow-head {
+    opacity: 1;
+  }
+
+  .how-cta {
+    @apply inline-flex items-center gap-2 bg-indigo-950 text-white rounded-full
+         px-8 py-4 text-base font-semibold mt-8 cursor-pointer
+         transition-all hover:gap-3 hover:scale-[1.03] hover:shadow-lg;
+  }
+
+  /* step animation keyframes */
+  .anim-pop {
+    animation: pop 3s ease-in-out infinite;
+    transform-origin: center;
+  }
+  .anim-check {
+    stroke-dasharray: 40;
+    stroke-dashoffset: 40;
+    animation: check-draw 3s ease-in-out infinite;
+  }
+  .anim-lift {
+    animation: lift 3s ease-in-out infinite;
+  }
+  .anim-dot {
+    animation: typing 1.4s ease-in-out infinite;
+  }
+  .anim-dot.d2 {
+    animation-delay: 0.2s;
+  }
+  .anim-dot.d3 {
+    animation-delay: 0.4s;
+  }
 }
 
 @layer utilities {
@@ -578,6 +698,8 @@
     scrollbar-width: none;
   }
 }
+
+/* Hero Keyframes*/
 
 @keyframes wipe-write {
   0% {
@@ -645,6 +767,52 @@
   }
   100% {
     transform: translate(70px, 95px) rotate(40deg);
+  }
+}
+
+/* CTA KEYFRAMES */
+@keyframes pop {
+  0%,
+  100% {
+    transform: scale(0);
+  }
+  20%,
+  80% {
+    transform: scale(1);
+  }
+}
+@keyframes check-draw {
+  0%,
+  15% {
+    stroke-dashoffset: 40;
+  }
+  35%,
+  80% {
+    stroke-dashoffset: 0;
+  }
+  100% {
+    stroke-dashoffset: 40;
+  }
+}
+@keyframes lift {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+@keyframes typing {
+  0%,
+  60%,
+  100% {
+    transform: translateY(0);
+    opacity: 0.4;
+  }
+  30% {
+    transform: translateY(-6px);
+    opacity: 1;
   }
 }
 

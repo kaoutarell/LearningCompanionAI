@@ -15,8 +15,9 @@ const Hero = () => {
           </span>
         </h1>
         <p className="hero-sub">
-          Infinite tutors, built for you. Ask questions, explore subjects, and
-          learn through natural voice conversations — anytime you like.
+          Available tutor agents, built for you. Ask questions, explore
+          subjects, and learn through natural voice conversations anytime you
+          like.
         </p>
         <Link href="/sign-in" className="hero-cta">
           Get started <span className="hero-cta-arrow">→</span>
@@ -70,7 +71,7 @@ const Hero = () => {
           >
             E = mc²
           </text>
-          {/* Lightbulb — yellow-ish, ADDED on top (drawn stroke) */}
+          {/* Lightbulb (drawn stroke) */}
           <g
             className="ink ink-6"
             stroke="#e0a92e"

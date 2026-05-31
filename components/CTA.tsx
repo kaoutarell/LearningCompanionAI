@@ -1,10 +1,10 @@
 "use client";
-import Link from "next/link";
 import { useScrollReveal } from "@/lib/useScrollReveal";
+import HowItWorks from "./HowItWorks";
 
 const CTA = () => {
   const heading = useScrollReveal();
-  const text = useScrollReveal();
+
   return (
     <section
       className="cta-section"
@@ -21,29 +21,20 @@ const CTA = () => {
       }}
     >
       <div className="cta-inner">
-        <h1
+        <div
           ref={heading.ref}
-          className={`cta-heading reveal ${heading.shown ? "is-visible" : ""}`}
+          className={`reveal ${heading.shown ? "is-visible" : ""} flex flex-col items-center gap-3`}
         >
-          Built for any kind of learning
-        </h1>
-        <div className="cta-row">
-          <div
-            ref={text.ref}
-            className={`cta-copy reveal ${text.shown ? "is-visible" : ""}`}
-          >
-            <h3 className="cta-copy-title">
-              Build and personalize your companion
-            </h3>
-            <p className="cta-copy-text">
-              Pick a name, subject, voice & personality — and start learning
-              through voice conversations that feel natural and fun.
-            </p>
-            <Link href="/companions/new" className="cta-btn">
-              Build a New Companion
-            </Link>
-          </div>
+          <h1 className="cta-heading">
+            Built for any kind of <span className="hero-accent">learning</span>
+          </h1>
+          <p className="cta-tagline">
+            Getting started takes less than a minute — three simple steps and
+            you're learning.
+          </p>
         </div>
+
+        <HowItWorks />
       </div>
     </section>
   );

@@ -1,25 +1,19 @@
-@reference "../../app/globals.css";
+@reference "../../../app/globals.css";
 
-.speaking-card-outer {
+.cardOuter {
   @apply rounded-[28px] p-2 w-full min-lg:max-w-[410px];
 }
-.speaking-card-inner {
+.cardInner {
   @apply flex flex-col items-center justify-center text-center
-         rounded-[22px] px-8 py-12 gap-5 min-h-[300px]
-         border border-black;
+         rounded-[22px] px-8 py-12 gap-5 min-h-[300px] border border-black;
 }
-.speaking-card-label {
+.label {
   @apply text-[11px] tracking-[0.18em] font-semibold text-neutral-500 uppercase;
 }
-.speaking-card-question {
+.question {
   @apply text-[26px] font-bold text-neutral-800 leading-tight;
 }
-.speaking-card-btn {
-  @apply text-white border border-black rounded-xl cursor-pointer
-         px-4 py-2 flex items-center justify-center gap-2 font-semibold
-         transition-transform hover:scale-[1.02];
-}
-
-.companion-card {
-  @apply flex flex-col rounded-4xl border border-black px-4 py-4 gap-5 w-full min-lg:max-w-[410px] justify-between bg-white;
+.btn {
+  @apply text-white border border-black rounded-xl cursor-pointer px-4 py-2
+         flex items-center justify-center gap-2 font-semibold transition-transform hover:scale-[1.02];
 }

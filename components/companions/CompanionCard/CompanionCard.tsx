@@ -34,10 +34,10 @@ const CompanionCard = ({
           />
           <p className="text-sm">{duration} minutes</p>
         </div>
-        <Link href={`/companions/${id}`} className="w-full">
+        <Link href={`/companions/${id}`} className="w-full flex justify-center">
           <button
             className={styles.btn}
-            style={{ background: `color-mix(in srgb, ${color} 70%, black)` }}
+            style={{ background: `color-mix(in srgb, ${color} 80%, black)` }}
           >
             Launch lesson
           </button>

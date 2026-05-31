@@ -19,8 +19,14 @@ const CompanionCard = ({
   color,
 }: CompanionCardProps) => {
   return (
-    <article className="speaking-card-outer" style={{ background: color }}>
-      <div className="speaking-card-inner" style={{ background: color }}>
+    <article
+      className="speaking-card-outer"
+      style={{ background: `color-mix(in srgb, ${color} 80%, white)` }}
+    >
+      <div
+        className="speaking-card-inner"
+        style={{ background: `color-mix(in srgb, ${color} 80%, white)` }}
+      >
         <span className="speaking-card-label">{subject}</span>
         <h2 className="speaking-card-question">{name}</h2>
         <p className="text-sm text-neutral-500">{topic}</p>
@@ -34,7 +40,10 @@ const CompanionCard = ({
           <p className="text-sm">{duration} minutes</p>
         </div>
         <Link href={`/companions/${id}`} className="w-full">
-          <button className="btn-primary w-full justify-center">
+          <button
+            className="speaking-card-btn w-full"
+            style={{ background: `color-mix(in srgb, ${color} 70%, black)` }}
+          >
             Launch lesson
           </button>
         </Link>

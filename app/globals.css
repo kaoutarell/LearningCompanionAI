@@ -358,6 +358,11 @@ body {
   .speaking-card-question {
     @apply text-[26px] font-bold text-neutral-800 leading-tight;
   }
+  .speaking-card-btn {
+    @apply text-white border border-black rounded-xl cursor-pointer
+         px-4 py-2 flex items-center justify-center gap-2 font-semibold
+         transition-transform hover:scale-[1.02];
+  }
 }
 
 @layer utilities {

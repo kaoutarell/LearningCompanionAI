@@ -11,6 +11,8 @@
   --radius: 0.625rem;
   --card: oklch(1 0 0);
   --card-foreground: oklch(0.145 0 0);
+  --card-pink: #f3dde2;
+  --card-pink-bg: #efd4da;
   --popover: oklch(1 0 0);
   --popover-foreground: oklch(0.145 0 0);
   --primary-foreground: oklch(0.985 0 0);
@@ -177,7 +179,7 @@ body {
   }
 
   .companions-grid {
-    @apply flex flex-wrap gap-4 w-full max-md:justify-center;
+    @apply flex flex-wrap gap-6 w-full max-md:justify-center;
   }
 
   .companion-card {
@@ -340,6 +342,21 @@ body {
     font-size: clamp(8rem, 28vw, 22rem);
     color: oklch(0.92 0 0);
     white-space: nowrap;
+  }
+
+  .speaking-card-outer {
+    @apply rounded-[28px] p-2 w-full min-lg:max-w-[410px];
+  }
+  .speaking-card-inner {
+    @apply flex flex-col items-center justify-center text-center
+         rounded-[22px] px-8 py-12 gap-5 min-h-[300px]
+         border border-black;
+  }
+  .speaking-card-label {
+    @apply text-[11px] tracking-[0.18em] font-semibold text-neutral-500 uppercase;
+  }
+  .speaking-card-question {
+    @apply text-[26px] font-bold text-neutral-800 leading-tight;
   }
 }
 

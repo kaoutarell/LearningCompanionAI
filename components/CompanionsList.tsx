@@ -3,12 +3,10 @@ import Image from "next/image";
 import {
   Table,
   TableBody,
-  TableCaption,
   TableCell,
   TableHead,
   TableHeader,
   TableRow,
-  TableFooter,
 } from "./ui/table";
 import { cn } from "@/lib/utils";
 import { getSubjectColor } from "@/lib/utils";

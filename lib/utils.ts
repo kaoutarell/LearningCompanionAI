@@ -57,3 +57,8 @@ export const configureAssistant = (voice: string, style: string) => {
   };
   return vapiAssistant;
 };
+
+export const getRandomPastel = () => {
+  const hue = Math.floor(Math.random() * 360);
+  return `hsl(${hue}, 70%, 88%)`;
+};

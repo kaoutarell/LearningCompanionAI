@@ -2,6 +2,7 @@
 
 import { auth } from "@clerk/nextjs/server";
 import { createSuperbaseClient } from "@/lib/superbase";
+import { getRandomPastel } from "@/lib/utils";
 
 // this code can only be used on the server side
 
@@ -12,7 +13,7 @@ export const createCompanion = async (formData: CreateCompanion) => {
 
   const { data, error } = await supabase
     .from("companions")
-    .insert({ ...formData, author })
+    .insert({ ...formData, author, color: getRandomPastel() })
     .select();
 
   if (error || !data)

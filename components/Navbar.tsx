@@ -7,21 +7,17 @@ const Navbar = () => {
   return (
     <nav className="navbar">
       <div className="nav-pill">
-        <Link
-          href="/"
-          className="flex items-center gap-2.5 cursor-pointer shrink-0"
-        >
+        <Link href="/" className="flex items-center cursor-pointer shrink-0">
           <Image
-            src="/images/illuma_no_bg.svg"
+            src="/images/illuma_no_bg.png"
             alt="logo"
-            width={40}
-            height={38}
+            width={80}
+            height={80}
+            className="h-14 w-auto -my-1 max-sm:h-10"
           />
         </Link>
-
         <NavItems />
-
-        <div className="flex items-center gap-3 shrink-0">
+        <div className="flex items-center gap-3 shrink-0 justify-self-end">
           <SignedOut>
             <SignInButton>
               <button className="nav-cta">Sign In</button>

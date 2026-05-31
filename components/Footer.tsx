@@ -48,7 +48,7 @@ const Footer = () => {
           <div className="flex items-start">
             <Link href="/" aria-label="Illumi home">
               <Image
-                src="/images/illuma_no_bg.svg"
+                src="/images/illuma_no_bg.png"
                 alt="Illumi"
                 width={46}
                 height={44}

@@ -218,14 +218,13 @@ body {
   }
 
   .nav-pill {
-    @apply flex items-center justify-between gap-8 w-full max-w-[760px]
-           rounded-full border border-black/10 bg-white/85 backdrop-blur-md
-           pl-6 pr-2 py-2 shadow-[0_4px_20px_rgba(0,0,0,0.06)]
-           max-sm:gap-3 max-sm:pl-4;
+    @apply grid grid-cols-[1fr_auto_1fr] items-center gap-8 w-full max-w-[760px]
+         rounded-full border border-black/10 bg-white/85 backdrop-blur-md
+         pl-6 pr-2 py-2 shadow-[0_4px_20px_rgba(0,0,0,0.06)]
+         max-sm:gap-3 max-sm:pl-4;
   }
-
   .nav-items {
-    @apply flex items-center gap-1 max-sm:gap-0.5;
+    @apply flex items-center justify-center gap-1 max-sm:gap-0.5;
   }
 
   /* link with "highlighter on paper" hover/active effect */

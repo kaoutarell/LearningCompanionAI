@@ -1,4 +1,5 @@
-"use client"; // bcs it's rendered on the client side
+"use client";
+
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { cn } from "@/lib/utils";
@@ -6,24 +7,29 @@ import { cn } from "@/lib/utils";
 const navItems = [
   { label: "Home", href: "/" },
   { label: "Companions", href: "/companions" },
-  { label: "My journey", href: "/my-journey" },
+  { label: "My Journey", href: "/my-journey" },
 ];
 
 const NavItems = () => {
-  //use pathname hook : to be able to know which of the navitems are we currently on (active)
   const pathname = usePathname();
+
   return (
-    <nav className="flex items-center gap-4">
-      {navItems.map(({ label, href }) => (
-        <Link
-          href={href}
-          key={label}
-          className={cn(pathname === href && "text-white font-semibold")}
-        >
-          {label}
-        </Link>
-      ))}
-    </nav>
+    <div className="nav-items">
+      {navItems.map(({ label, href }) => {
+        const isActive =
+          href === "/" ? pathname === "/" : pathname.startsWith(href);
+
+        return (
+          <Link
+            key={label}
+            href={href}
+            className={cn("nav-link", isActive && "active")}
+          >
+            {label}
+          </Link>
+        );
+      })}
+    </div>
   );
 };
 

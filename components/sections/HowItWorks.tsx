@@ -1,7 +1,7 @@
 "use client";
 import Link from "next/link";
 import { useScrollReveal } from "@/lib/useScrollReveal";
-import { StepAccount, StepPlan, StepBuild } from "./StepAnimations";
+import { StepAccount, StepPlan, StepBuild } from "../ui/StepAnimations";
 
 const steps = [
   {

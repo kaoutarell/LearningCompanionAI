@@ -7,7 +7,7 @@ import {
   TableHead,
   TableHeader,
   TableRow,
-} from "./ui/table";
+} from "@/components/ui/table";
 import { cn } from "@/lib/utils";
 import { getSubjectColor } from "@/lib/utils";
 

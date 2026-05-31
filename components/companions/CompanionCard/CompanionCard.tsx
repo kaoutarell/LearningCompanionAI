@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import styles from "./CompanionCard.module.css";
 
 interface CompanionCardProps {
   id: string;
@@ -19,16 +20,10 @@ const CompanionCard = ({
   color,
 }: CompanionCardProps) => {
   return (
-    <article
-      className="speaking-card-outer"
-      style={{ background: `color-mix(in srgb, ${color} 80%, white)` }}
-    >
-      <div
-        className="speaking-card-inner"
-        style={{ background: `color-mix(in srgb, ${color} 80%, white)` }}
-      >
-        <span className="speaking-card-label">{subject}</span>
-        <h2 className="speaking-card-question">{name}</h2>
+    <article className={styles.cardOuter} style={{ background: color }}>
+      <div className={styles.cardInner} style={{ background: color }}>
+        <span className={styles.label}>{subject}</span>
+        <h2 className={styles.question}>{name}</h2>
         <p className="text-sm text-neutral-500">{topic}</p>
         <div className="flex items-center gap-2 text-neutral-500">
           <Image
@@ -41,7 +36,7 @@ const CompanionCard = ({
         </div>
         <Link href={`/companions/${id}`} className="w-full">
           <button
-            className="speaking-card-btn w-full"
+            className={styles.btn}
             style={{ background: `color-mix(in srgb, ${color} 70%, black)` }}
           >
             Launch lesson
@@ -51,5 +46,4 @@ const CompanionCard = ({
     </article>
   );
 };
-
 export default CompanionCard;

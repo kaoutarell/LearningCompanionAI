@@ -330,10 +330,6 @@
     @apply flex flex-wrap gap-6 w-full max-md:justify-center;
   }
 
-  .companion-card {
-    @apply flex flex-col rounded-4xl border border-black px-4 py-4 gap-5 w-full min-lg:max-w-[410px] justify-between bg-white;
-  }
-
   .subject-badge {
     @apply bg-black text-white rounded-4xl text-sm px-2 py-1 capitalize;
   }
@@ -482,26 +478,6 @@
     font-size: clamp(8rem, 28vw, 22rem);
     color: oklch(79.956% 0.10649 311.328 / 0.203);
     white-space: nowrap;
-  }
-
-  .speaking-card-outer {
-    @apply rounded-[28px] p-2 w-full min-lg:max-w-[410px];
-  }
-  .speaking-card-inner {
-    @apply flex flex-col items-center justify-center text-center
-         rounded-[22px] px-8 py-12 gap-5 min-h-[300px]
-         border border-black;
-  }
-  .speaking-card-label {
-    @apply text-[11px] tracking-[0.18em] font-semibold text-neutral-500 uppercase;
-  }
-  .speaking-card-question {
-    @apply text-[26px] font-bold text-neutral-800 leading-tight;
-  }
-  .speaking-card-btn {
-    @apply text-white border border-black rounded-xl cursor-pointer
-         px-4 py-2 flex items-center justify-center gap-2 font-semibold
-         transition-transform hover:scale-[1.02];
   }
 
   /*.cta-section {

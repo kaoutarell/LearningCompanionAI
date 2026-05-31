@@ -1,7 +1,7 @@
 import React from "react";
-import Hero from "@/components/Hero";
-import CompanionCard from "@/components/CompanionCard";
-import CTA from "@/components/CTA";
+import Hero from "@/components/sections/Hero";
+import CompanionCard from "@/components/companions/CompanionCard/CompanionCard";
+import CTA from "@/components/sections/CTA";
 import { getAllCompanions } from "@/lib/actions/companion.actions";
 import { getSubjectColor } from "@/lib/utils";
 

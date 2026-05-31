@@ -8,7 +8,7 @@ import { currentUser } from "@clerk/nextjs/server";
 import { redirect } from "next/navigation";
 import { getUserCompanions } from "@/lib/actions/companion.actions";
 import Image from "next/image";
-import CompanionsList from "@/components/CompanionsList";
+import CompanionsList from "@/components/companions/CompanionList/CompanionsList";
 
 const Profile = async () => {
   const user = await currentUser();

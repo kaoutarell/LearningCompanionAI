@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&display=swap");
 @import "tailwindcss";
 @import "tw-animate-css";
 
@@ -172,6 +173,155 @@
     background-position: -8px -8px;
   }
 
+  .hero {
+    @apply flex items-center gap-10 w-full pt-16 pb-20 max-lg:flex-col max-lg:text-center;
+  }
+  .hero-copy {
+    @apply flex-1 flex flex-col gap-6 max-lg:items-center;
+  }
+  .hero-eyebrow {
+    @apply inline-flex items-center gap-1.5 text-sm font-semibold
+         text-indigo-500 bg-indigo-50 rounded-full px-3.5 py-1.5 w-fit
+         max-lg:mx-auto;
+  }
+  .hero-title {
+    @apply flex flex-col gap-1 text-[3.5rem] font-extrabold leading-[0.98]
+         tracking-tight text-neutral-900 max-md:text-4xl;
+  }
+  .hero-title-top {
+    /* inline so "Meet" and "illumi" sit side by side */
+    @apply block;
+  }
+  .hero-title-line {
+    @apply block text-neutral-900;
+  }
+  .hero-sketch {
+    @apply w-full h-full max-h-[460px];
+  }
+  .hw {
+    font-family: "Caveat", cursive;
+    font-weight: 700;
+  }
+  .hw-bubble {
+    opacity: 0;
+    animation: text-blink 14s ease-in-out infinite;
+    animation-delay: 8.5s;
+  }
+
+  /* drawn shapes (triangle, bubble) keep the dash animation */
+  .ink path {
+    stroke-dasharray: 2000;
+    stroke-dashoffset: 2000;
+    animation: draw-erase 14s ease-in-out infinite;
+  }
+  .ink-2 path {
+    animation-delay: 2s;
+  }
+  .ink-5 path {
+    animation-delay: 7.5s;
+  }
+  .ink-6 path {
+    animation-delay: 5.5s;
+  }
+
+  /* text "writing" via clip wipe */
+  .wipe {
+    animation: wipe-write 14s ease-in-out infinite;
+  }
+  .wipe-1 {
+    animation-delay: 0s;
+  }
+  .wipe-3 {
+    animation-delay: 3.5s;
+  }
+
+  .pencil {
+    animation: pencil-move 14s ease-in-out infinite;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .ink path {
+      stroke-dashoffset: 0;
+      animation: none;
+    }
+    .wipe {
+      width: 320px;
+      animation: none;
+    }
+    .hw-bubble {
+      opacity: 1;
+      animation: none;
+    }
+    .pencil {
+      display: none;
+    }
+  }
+
+  .hero-accent {
+    background: linear-gradient(
+      110deg,
+      var(--pastel-blue),
+      var(--pastel-purple) 45%,
+      var(--pastel-pink)
+    );
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    /* darken the pastels just enough to stay readable as text */
+    filter: saturate(1.4) brightness(0.82);
+  }
+  .hero-sub {
+    @apply text-lg text-neutral-500 max-w-[460px] leading-relaxed mt-1;
+  }
+  .hero-cta {
+    @apply inline-flex items-center gap-2 bg-indigo-950 text-white rounded-full
+         px-7 py-3.5 text-base font-semibold w-fit cursor-pointer mt-2
+         transition-all hover:gap-3 hover:scale-[1.03] hover:shadow-lg;
+  }
+  .hero-cta-arrow {
+    @apply transition-transform;
+  }
+  .hero-visual {
+    @apply relative flex-1 h-[460px] w-full max-lg:h-[320px];
+  }
+  .hero-visual::before {
+    content: "";
+    position: absolute;
+    inset: 15% 10%;
+    background: radial-gradient(
+      circle,
+      rgba(189, 231, 255, 0.4),
+      transparent 70%
+    );
+    filter: blur(40px);
+    z-index: -1;
+  }
+  .hero-orb {
+    @apply absolute;
+    border-radius: 42% 58% 70% 30% / 45% 45% 55% 55%;
+    mix-blend-mode: multiply;
+    opacity: 0.92;
+    animation-name: orb-float, orb-morph;
+    animation-timing-function:
+      cubic-bezier(0.45, 0, 0.55, 1), cubic-bezier(0.45, 0, 0.55, 1);
+    animation-iteration-count: infinite, infinite;
+    box-shadow:
+      0 20px 40px -8px rgba(80, 70, 120, 0.18),
+      inset 0 -10px 20px rgba(120, 90, 160, 0.2),
+      inset 6px 8px 14px rgba(255, 255, 255, 0.5);
+  }
+  .hero-orb::after {
+    content: "";
+    position: absolute;
+    top: 14%;
+    left: 18%;
+    width: 28%;
+    height: 22%;
+    border-radius: 9999px;
+    background: rgba(255, 255, 255, 0.7);
+    filter: blur(4px);
+  }
+
   .home-section {
     @apply flex gap-4 justify-between items-start w-full max-lg:flex-col-reverse max-lg:items-center;
   }
@@ -198,25 +348,6 @@
 
   .rounded-border {
     @apply rounded-4xl border border-black;
-  }
-
-  .cta-section {
-    @apply flex flex-col items-center gap-12 px-10 py-16 max-md:px-6 max-md:py-10;
-    position: relative;
-    left: 50%;
-    right: 50%;
-    margin-left: -50vw;
-    margin-right: -50vw;
-    width: 100vw;
-    background-image: radial-gradient(
-      var(--dot-color) var(--dot-size),
-      transparent var(--dot-size)
-    );
-    background-size: var(--dot-gap) var(--dot-gap);
-    background-position: -8px -8px;
-  }
-  .cta-inner {
-    @apply w-full max-w-[1100px] mx-auto flex flex-col items-center gap-12;
   }
 
   .btn-primary {
@@ -372,11 +503,26 @@
          px-4 py-2 flex items-center justify-center gap-2 font-semibold
          transition-transform hover:scale-[1.02];
   }
-  /* --- CTA --- */
+
   .cta-section {
-    @apply w-full rounded-[32px] border border-black/10 px-10 py-16
-         flex flex-col items-center gap-12 max-md:px-6 max-md:py-10;
+    @apply flex flex-col items-center gap-12 px-10 py-16 max-md:px-6 max-md:py-10;
+    position: relative;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
+    width: 100vw;
+    background-image: radial-gradient(
+      var(--dot-color) var(--dot-size),
+      transparent var(--dot-size)
+    );
+    background-size: var(--dot-gap) var(--dot-gap);
+    background-position: -8px -8px;
   }
+  .cta-inner {
+    @apply w-full max-w-[1100px] mx-auto flex flex-col items-center gap-12;
+  }
+
   .cta-heading {
     @apply text-4xl font-bold text-center max-md:text-3xl;
   }
@@ -430,5 +576,80 @@
   .no-scrollbar {
     -ms-overflow-style: none;
     scrollbar-width: none;
+  }
+}
+
+@keyframes wipe-write {
+  0% {
+    width: 0;
+  }
+  28% {
+    width: 320px;
+  } /* written */
+  70% {
+    width: 320px;
+  } /* hold */
+  90% {
+    width: 0;
+  } /* erase */
+  100% {
+    width: 0;
+  }
+}
+@keyframes draw-erase {
+  0% {
+    stroke-dashoffset: 2000;
+  }
+  30% {
+    stroke-dashoffset: 0;
+  }
+  70% {
+    stroke-dashoffset: 0;
+  }
+  90% {
+    stroke-dashoffset: 2000;
+  }
+  100% {
+    stroke-dashoffset: 2000;
+  }
+}
+@keyframes text-blink {
+  0%,
+  12% {
+    opacity: 0;
+  }
+  22%,
+  78% {
+    opacity: 1;
+  }
+  90%,
+  100% {
+    opacity: 0;
+  }
+}
+@keyframes pencil-move {
+  0% {
+    transform: translate(70px, 95px) rotate(40deg);
+  }
+  20% {
+    transform: translate(330px, 95px) rotate(40deg);
+  }
+  38% {
+    transform: translate(110px, 250px) rotate(40deg);
+  }
+  55% {
+    transform: translate(330px, 335px) rotate(40deg);
+  }
+  72% {
+    transform: translate(390px, 215px) rotate(40deg);
+  }
+  100% {
+    transform: translate(70px, 95px) rotate(40deg);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-orb {
+    animation: none;
   }
 }

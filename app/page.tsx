@@ -1,19 +1,16 @@
 import React from "react";
+import Hero from "@/components/Hero";
 import CompanionCard from "@/components/CompanionCard";
-import CompanionsList from "@/components/CompanionsList";
 import CTA from "@/components/CTA";
-import {
-  getAllCompanions,
-  getRecentSessions,
-} from "@/lib/actions/companion.actions";
+import { getAllCompanions } from "@/lib/actions/companion.actions";
 import { getSubjectColor } from "@/lib/utils";
 
 const Page = async () => {
   const companions = await getAllCompanions({ limit: 3 });
-  const recentSessionsCompanions = await getRecentSessions(10);
   return (
     <>
       <main>
+        <Hero />
         <h1 className="text-2xl underline">Popular Companions</h1>
         <section className="companions-grid">
           {companions?.map((companion) => (
@@ -24,18 +21,9 @@ const Page = async () => {
             />
           ))}
         </section>
-
-        <section className="home-section">
-          <CompanionsList
-            title="Recently completed sessions"
-            companions={recentSessionsCompanions}
-            classNames="w-full"
-          />
-        </section>
       </main>
       <CTA />
     </>
   );
 };
-
 export default Page;

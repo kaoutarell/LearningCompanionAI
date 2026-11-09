@@ -9,7 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@clerk/nextjs": "^7.9.25",
+    "@clerk/nextjs": "^6.39.8",
     "@hookform/resolvers": "^5.1.1",
     "@jsmastery/utils": "^1.0.2",
     "@opentelemetry/core": "^2.1.0",

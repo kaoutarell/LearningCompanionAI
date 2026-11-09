@@ -5,6 +5,8 @@ import { newCompanionPermissions } from "@/lib/actions/companion.actions";
 import Image from "next/image";
 import Link from "next/link";
 
+export const dynamic = "force-dynamic";
+
 // the users that are not logged in can't build a new companion
 
 const newCompanion = async () => {

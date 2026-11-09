@@ -10,6 +10,8 @@ import { getUserCompanions } from "@/lib/actions/companion.actions";
 import Image from "next/image";
 import CompanionsList from "@/components/companions/CompanionList/CompanionsList";
 
+export const dynamic = "force-dynamic";
+
 const Profile = async () => {
   const user = await currentUser();
   if (!user) redirect("/sign-in");

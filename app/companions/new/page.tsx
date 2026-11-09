@@ -1,4 +1,4 @@
-import CompanionForm from "@/components/CompanionForm";
+import CompanionForm from "@/components/companions/CompanionForm/CompanionForm";
 import { auth } from "@clerk/nextjs/server";
 import { redirect } from "next/navigation";
 import { newCompanionPermissions } from "@/lib/actions/companion.actions";

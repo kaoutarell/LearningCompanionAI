@@ -10,9 +10,6 @@
 !.yarn/releases
 !.yarn/versions
 
-# package manager manifests
-package.json
-package-lock.json
 
 
 # testing
